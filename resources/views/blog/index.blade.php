@@ -22,6 +22,8 @@
             <th>No</th>
             <th>Title</th>
             <th>Slug</th>
+            <th>Author</th>
+            <th>Image</th>
             <th>Description</th>
             <th width="280px">Action</th>
         </tr>
@@ -32,9 +34,14 @@
         <tr>
           
             <td>{{$i++ }}</td>
-            <td>{{ $post->title }}</td>
+            
+            <td>{{\Illuminate\Support\Str::limit($post->title,'10','...') }}</td>
             <td>{{ $post->slug }}</td>
-            <td>{{ $post->description }}</td>
+            <td>{{ $post->user->name }}</td>
+            
+            <td><img src="{{ asset('public/image/'.$post->image) }}" height="50px;"
+                width="50px;"></td>
+            <td>{{\Illuminate\Support\Str::limit($post->description,'20','...') }}</td>
             <td>
                 <form action="{{ route('blogs.destroy',$post->id) }}" method="POST">
    

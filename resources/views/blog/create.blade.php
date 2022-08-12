@@ -8,7 +8,7 @@
             <h2>Add New Post</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="#"> Back</a>
+            <a class="btn btn-primary" href="{{ route('blogs.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -46,6 +46,12 @@
                 <input type="text" name="slug" class="form-control" placeholder="Slug">
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Image:</strong>
+                <input type="file" name="image" class="form-control" placeholder="Image">
+            </div>
+       </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>

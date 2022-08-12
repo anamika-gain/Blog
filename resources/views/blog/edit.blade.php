@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('blogs.update',$blog->id) }}" method="POST">
+    <form action="{{ route('blogs.update',$blog->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -43,9 +43,18 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Image:</strong>
+                    <input type="file" name="new_image" class="form-control"  placeholder="Image">
+                    {{-- <input type="hidden" name="old_image" value="{{ asset($blog->image) }}"> --}}
+                    <br>
+                    <img src="{{asset($blog->image)  }}" width="100px">
+                </div>
+           </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Description:</strong>
-                    <textarea class="form-control" style="height:50px" name="description"
-                        placeholder="description">{!!$blog->description!!}</textarea>
+                    <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{!!$blog->description!!}</textarea>
                 </div>
             </div>
             

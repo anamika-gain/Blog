@@ -16,12 +16,13 @@ Route::middleware(['auth'])->group(function () {
  Route::post('comment/{post}',[CommentController::class,'store'])->name('comment.store');
  Route::get('comments',[CommentController::class,'index'])->name('comment.index');
  Route::delete('comments/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
-
+ Route::get('/blogbyme',[BlogController::class,'blogByAuthor'])->name('blogs.me');
+ Route::resource('blogs', BlogController::class);
 });
 
 // Route::get('blogs/create', [BlogController::class,'create']);
 // Route::post('store/blogs', [BlogController::class, 'store'])->name('store.blog');
-Route::resource('blogs', BlogController::class);
+
 Route::get('post/{slug}',[BlogController::class,'post_details'])->name('post.details');
 // Route::get('blogs/show/{slug}',[BlogController::class,'show'])->name('blogs.show');
 // Route::middleware(['auth'])->group(function () {

@@ -9,8 +9,12 @@ class Blog extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title','slug','description'
+        'title','slug','image','description'
     ];
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
     public function comments()
     {
         return $this->hasMany('App\Models\Comment');
